@@ -1,7 +1,3 @@
 # Ukraine help calculator frontend
 
-## Set-up
-```npm install```
-
-## Start locally
-```npm start```
+### Backend and frontend have README files inside
