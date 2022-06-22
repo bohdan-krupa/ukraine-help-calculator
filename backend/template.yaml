@@ -4,25 +4,39 @@ Description: SAM Template for Ukraine help calculator
 
 Globals:
   Function:
+    Runtime: python3.9
     Timeout: 10
+    Architectures:
+      - x86_64
+    Layers:
+      - !Ref PackagesLayer
 
 Resources:
-  HelloWorldFunction:
+  GetItemsFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: get_items/
+      CodeUri: lambdas/get_items/
       Handler: app.lambda_handler
-      Runtime: python3.9
-      Architectures:
-        - x86_64
       Events:
-        HelloWorld:
+        GetItems:
           Type: Api
           Properties:
             Path: /get-items
             Method: get
 
+  PackagesLayer:
+      Type: AWS::Serverless::LayerVersion
+      Properties:
+        LayerName: Packages
+        ContentUri: layers/packages/
+        CompatibleRuntimes:
+          - python3.9
+      Metadata:
+        BuildMethod: python3.9
+
+  # DB here
+
 Outputs:
-  HelloWorldApi:
+  GetItems:
     Description: "Get items endpoint"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/get-items/"
