@@ -1,0 +1,2 @@
+boto3==1.21.16
+boto3_type_annotations_with_docs==0.3.1
