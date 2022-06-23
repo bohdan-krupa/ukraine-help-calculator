@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.header {
+    position: fixed;
+    width: 960px;
+    height: 100px;
+    top: 0;
+    left: calc(50% - 480px);
+}
+
+.header_shadow {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0,0, 0.6);
+}
+
+.header_button-donate {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 15%;
+    padding: 15px 20px;
+
+    background-color: rgba(0,0,0,0.9);
+    color: white;
+    font-size: 21px;
+    /* font-weight: bold; */
+    border-radius: 5px;
+}
+
+.header_button-donate:hover {
+    border: 3px solid white;
+    cursor: pointer;
+}
+
+.main {
+    margin-top: 150px;
+}
+
+.main_title {
+    text-align: center;
+    font-size: 25px;
+}
+
+.main_box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.main_button-page {
+    width: 250px;
+    height: 50px;
+    margin-left: 100px;
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(20,20,20);
+    border-radius: 3px;
+    color: white;
+    font-size: 21px;
+    /* font-weight: bold; */
+}
+
+.main_button-page:hover {
+    cursor: pointer;
+    box-shadow: rgba(100, 100, 100, 0.4) 5px 5px, rgba(100, 100, 100, 0.3) 10px 10px, rgba(100, 100, 100, 0.2) 15px 15px, rgba(100, 100, 100, 0.1) 20px 20px, rgba(100, 100, 100, 0.05) 25px 25px;
+}
+
+.main_items {
+    display: flex;
+
+}
+
+.item {
+    margin-left: auto;
+    margin-right: 20px;
+    width: 400px;
+    height: 300px;
+    border: 1px solid black;
+}
