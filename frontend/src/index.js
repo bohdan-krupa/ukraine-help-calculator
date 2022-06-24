@@ -5,37 +5,53 @@ import './index.css'
 class Header extends React.Component {
     render() {
         return (
-            <div className="header" style={{ backgroundImage: "url(/tractor2.png)" }}>
-                {/* <img src={require("./tractor2.png")} width="960" height="100"></img> */}
-                <div className="header_shadow"></div>
-                <button
-                    className="header_button-donate"
-                    onMouseEnter={() => document.querySelector('.header_shadow').style.display = 'block'}
-                    onMouseLeave={() => document.querySelector('.header_shadow').style.display = 'none'}
-                >Підтримати країну
-                </button>
+            <div className="header">
+                <div className="header_logo">logo</div>
+                <div className="header_menu">
+                    <div className="button menu_item">Головна</div>
+                    <div className="button menu_item">Армія</div>
+                    <div className="button menu_item">Гуманітарка</div>
+                </div>
+                <div className="button header_donate-button">Підтримати</div>
             </div>
         )
     }
 }
 
-class Main extends React.Component {
+class Intro extends React.Component {
     render() {
         return (
-            <div className="main">
-                <p className="main_title">{this.props.value} грн - це ...</p>
-                <div className="main_box">
-                    <div className="main_button-page">{this.props.value} грн у відсотках</div>
-                    <div className="main_items">
-                        <div className="item">
-                            <div className="item_picture">
-                                <img width="150" height="150"></img>
+            <div className="intro"
+                style={{
+                    backgroundImage: "url(/bg.jpg)"
+                }}>
+                <div className="intro_content">
+                    <div className="intro_title">НА ЩО<br></br> КОШТИ<br></br> ВИТРАЧАЮТЬСЯ?</div>
+                    <div className="intro_stats">
+                        <div className="stats_title">Розподіл коштів</div>
+                        <div className="stats_list">
+                            <div className="stats_item">
+                                <div className="stats_item-title">
+                                    item2
+                                </div>
+                                <div className="stats_item-progress">
+                                    <div className="stats_item-progress-bar"></div>
+                                    <div className="stats_item-progress-percent">30%</div>
+                                </div>
                             </div>
-                            <p className="item_text">Богдан роби базу даних Богдан роби базу даних Богдан роби базу даних</p>
+                            <div className="stats_item">
+                                <div className="stats_item-title">
+                                    item2
+                                </div>
+                                <div className="stats_item-progress">
+                                    <div className="stats_item-progress-bar"></div>
+                                    <div className="stats_item-progress-percent">30%</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         )
     }
@@ -43,15 +59,83 @@ class Main extends React.Component {
 
 class Capability extends React.Component {
     render() {
-        var number = 10000000
         return (
-            <div className="container">
+            <div className="capability">
+                <div className="capability_title">
+                    Що можна придбати за ... грн?
+                </div>
+                <div className="capability_content">
+                <div className="capability_button"
+                        style={{
+                            backgroundImage: "url(/arrow-left.png)",
+                            backgroundSize: 'cover',
+                            width: '100px',
+                            height: '100px'
+                        }}></div>
+                    <div className="capability_list">
+                        <div className="capability_item">
+                            <div className="capability_item-top">
+                                <img src={require('./bron.jpg')} width="100" height="100"></img>
+                                <span className="capability_item-amount">x5</span>
+                            </div>
+                            <div className="capability_item-body">
+                                <span className="capability_item-title">title </span>
+                                -
+                                <span className="capability_item-price"> 1000$</span>
+                            </div>
+                            <div className="capability_item-desc">Богдан роби базу даних Богдан роби базу даних Богдан роби базу даних</div>
+                        </div>
+                        <div className="capability_item">
+                            <div className="capability_item-top">
+                                <img src={require('./bron.jpg')} width="100" height="100"></img>
+                                <span className="capability_item-amount">x5</span>
+                            </div>
+                            <div className="capability_item-body">
+                                <span className="capability_item-title">title </span>
+                                -
+                                <span className="capability_item-price"> 1000$</span>
+                            </div>
+                            <div className="capability_item-desc">Богдан роби базу даних Богдан роби базу даних Богдан роби базу даних</div>
+                        </div>
+                        <div className="capability_item">
+                            <div className="capability_item-top">
+                                <img src={require('./bron.jpg')} width="100" height="100"></img>
+                                <span className="capability_item-amount">x5</span>
+                            </div>
+                            <div className="capability_item-body">
+                                <span className="capability_item-title">title </span>
+                                -
+                                <span className="capability_item-price"> 1000$</span>
+                            </div>
+                            <div className="capability_item-desc">Богдан роби базу даних Богдан роби базу даних Богдан роби базу даних</div>
+                        </div>
+                    </div>
+                    <div className="capability_button"
+                        style={{
+                            backgroundImage: "url(/arrow-right.png)",
+                            backgroundSize: 'cover',
+                            width: '100px',
+                            height: '100px'
+                        }}></div>
+                </div>
+
+            </div>
+        )
+    }
+}
+
+class ArmyPage extends React.Component {
+    render() {
+        return (
+            <div>
+
                 <Header></Header>
-                <Main value={number.toLocaleString()}></Main>
+                <Intro></Intro>
+                <Capability></Capability>
             </div>
         )
     }
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(< Capability />);
+root.render(<ArmyPage />);
