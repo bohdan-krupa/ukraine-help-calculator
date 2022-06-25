@@ -1,0 +1,91 @@
+.choose-part {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../../images/bg.jpg);
+  background-size: cover;
+  background-position: center;
+
+  .header {
+    padding: 15px;
+    color: white;
+    text-shadow: 1px 1px 30px black;
+
+    h1 {
+      display: inline;
+      font-family: "Dancing Script";
+      background-repeat: no-repeat;
+      background-position: center bottom -13px;
+      background-size: 100% 15px;
+      background-image: linear-gradient(
+        to left,
+        rgb(238, 255, 0),
+        rgb(47, 0, 255)
+      );
+    }
+  }
+
+  .main-block {
+    h2 {
+      color: #ffffff;
+      font-family: "CMU", sans-serif;
+      text-shadow: 1px 1px 30px black;
+      line-height: 40px;
+
+      &.enter-sum {
+        margin-top: 20px;
+        text-align: center;
+      }
+    }
+  }
+
+  .ukraine-map {
+    width: 600px;
+    height: 400px;
+    background-image: url(../../images/map.png);
+    background-size: contain;
+  }
+
+  .choose-buttons {
+    display: flex;
+
+    .button-1,
+    .button-2 {
+      width: 160px;
+      height: 45px;
+      line-height: 45px;
+      border-radius: 100px;
+      margin: 10px 20px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .button-1 {
+      color: #fcff41;
+      background: #2e7de5;
+
+      &:hover {
+        box-shadow: 0 15px 20px rgba(46, 110, 229, 0.4);
+        transform: translateY(-7px);
+      }
+    }
+
+    .button-2 {
+      color: #2e7de5;
+      background: #fcff41;
+
+      &:hover {
+        box-shadow: 0 15px 20px rgba(239, 253, 44, 0.726);
+        transform: translateY(-7px);
+      }
+    }
+  }
+}

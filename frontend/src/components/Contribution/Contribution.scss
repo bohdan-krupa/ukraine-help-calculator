@@ -1,0 +1,45 @@
+.contribution_title {
+  text-align: center;
+  font-size: 40px;
+}
+
+.contribution_list {
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 0 100px;
+}
+
+.contribution_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.contribution_item-box {
+  width: 200px;
+  height: 250px;
+}
+
+.contribution_item-title {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 25px;
+  font-style: italic;
+  text-align: center;
+}
+
+.contribution_item-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 300px;
+}
+
+.contribution_item-bar {
+  width: 1500px;
+  height: 15px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+}
