@@ -10,18 +10,58 @@ Globals:
       - x86_64
     Layers:
       - !Ref PackagesLayer
+  Api:
+    Cors:
+      AllowMethods: "'GET,POST,OPTIONS,DELETE'"
+      AllowHeaders: "'content-type'"
+      AllowOrigin: "'*'"
 
 Resources:
+  ItemsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: ukraine-help-calculator
+
+  ItemsBucketAllowPublicReadPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref ItemsBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - "s3:GetObject"
+            Resource:
+              - !Join ['/', [!GetAtt [ItemsBucket, Arn], '*']]
+            Principal: "*"
+
+  ItemsTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      TableName: UkraineHelpItems
+      PrimaryKey:
+        Name: id
+        Type: String
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+
   GetItemsFunction:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: lambdas/get_items/
       Handler: app.lambda_handler
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: !Ref ItemsTable
+        - S3ReadPolicy:
+            BucketName: !Ref ItemsBucket
       Events:
         GetItems:
           Type: Api
           Properties:
-            Path: /get-items
+            Path: /get-items/{type}
             Method: get
 
   PackagesLayer:
@@ -33,8 +73,6 @@ Resources:
           - python3.9
       Metadata:
         BuildMethod: python3.9
-
-  # DB here
 
 Outputs:
   GetItems:
