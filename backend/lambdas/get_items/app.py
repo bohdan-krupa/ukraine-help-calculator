@@ -9,4 +9,9 @@ def lambda_handler(event, _):
     return {
         "statusCode": 200,
         "body": json.dumps(items),
+        "headers": {
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "OPTIONS,POST,GET,DELETE",
+        },
     }
