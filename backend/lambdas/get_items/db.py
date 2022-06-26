@@ -1,13 +1,15 @@
 import boto3
+from boto3.dynamodb.conditions import Attr
 from boto3_type_annotations.dynamodb.service_resource import ServiceResource
 
 
 class DB:
-    dynamodb: ServiceResource = boto3.resource(
-        "dynamodb", endpoint_url="http://localhost:8000"
-    )
-    table = dynamodb.Table("TableName")
+    dynamodb: ServiceResource = boto3.resource("dynamodb")
+    table = dynamodb.Table("UkraineHelpItems")
 
     @staticmethod
-    def get_items():
-        ...
+    def get_items(type: str):
+        response = DB.table.scan(FilterExpression=Attr("type").eq(type))
+        items = response.get("Items", [])
+
+        return items
