@@ -2,7 +2,11 @@ import { FC } from "react";
 import { Link } from "react-scroll";
 import "./ChoosePart.scss";
 
-const ChoosePart: FC = () => {
+interface IChoosePartProps {
+  setMoney: Function;
+}
+
+const ChoosePart: FC<IChoosePartProps> = ({ setMoney }) => {
   return (
     <div className="choose-part">
       <div className="header">
@@ -16,10 +20,12 @@ const ChoosePart: FC = () => {
         </h2>
         <h2>Зроби свій внесок у перемогу нашої країни!</h2>
         <h2>Вчасна допомога - врятоване життя</h2>
-        <h2 className="enter-sum">Введіть суму: </h2>
+        <h2 className="enter-sum">Введіть суму (грн): </h2>
       </div>
 
-      <div className="ukraine-map" />
+      <div className="ukraine-map">
+        <input type="number" onChange={(e) => setMoney(e.target.value)} />
+      </div>
 
       <div className="choose-buttons">
         <Link to="statistics-humanitarian" smooth={true}>

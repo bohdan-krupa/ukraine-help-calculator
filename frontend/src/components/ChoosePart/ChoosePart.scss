@@ -43,10 +43,34 @@
   }
 
   .ukraine-map {
+    position: relative;
     width: 600px;
     height: 400px;
     background-image: url(../../images/map.png);
+    background-repeat: no-repeat;
     background-size: contain;
+
+    input {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid black;
+      outline: none;
+      font-size: 30px;
+      font-weight: 600;
+      color: white;
+      text-align: center;
+      text-shadow: 1px 1px 30px black;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
   }
 
   .choose-buttons {

@@ -1,16 +1,17 @@
 import { FC } from "react";
 import Capability from "../Capability/Capability";
-import Contribution from "../Contribution/Contribution";
+// import Contribution from "../Contribution/Contribution";
 
 interface IStatisticsProps {
+  money: number;
   type: string;
 }
 
-const Statistics: FC<IStatisticsProps> = ({ type }: IStatisticsProps) => {
+const Statistics: FC<IStatisticsProps> = ({ money, type }) => {
   return (
     <div className={`statistics-${type}`}>
-      <Capability />
-      <Contribution />
+      <Capability money={money} type={type} />
+      {/* <Contribution /> */}
     </div>
   );
 };

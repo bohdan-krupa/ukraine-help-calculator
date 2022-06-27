@@ -11,5 +11,6 @@ class DB:
     def get_items(type: str):
         response = DB.table.scan(FilterExpression=Attr("type").eq(type))
         items = response.get("Items", [])
+        _ = [item.update(price=int(item["price"])) for item in items]
 
         return items
