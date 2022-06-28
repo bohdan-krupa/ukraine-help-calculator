@@ -3,6 +3,7 @@ import ChoosePart from "./components/ChoosePart/ChoosePart";
 import Footer from "./components/Footer/Footer";
 import Intro from "./components/Intro/Intro";
 import Statistics from "./components/Statistics/Statistics";
+import Org from "./components/Org/Org";
 
 const App: FC = () => {
   const [money, setMoney] = useState(0);
@@ -10,6 +11,7 @@ const App: FC = () => {
   return (
     <>
       <ChoosePart setMoney={setMoney} />
+      <Org></Org>
 
       {money > 0 && (
         <>

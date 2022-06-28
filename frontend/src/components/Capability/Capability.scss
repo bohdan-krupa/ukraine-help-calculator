@@ -62,7 +62,7 @@
 
 
   // box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 15px;
 }
 
@@ -82,7 +82,12 @@
 // }
 
 .capability_item-top {
+  margin: 0 auto;
   padding: 0px;
+}
+
+.capability_item-img {
+  margin: 0 auto;
 }
 
 .capability_item-amount {

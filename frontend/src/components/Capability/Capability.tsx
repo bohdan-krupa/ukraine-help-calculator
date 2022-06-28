@@ -37,12 +37,14 @@ const Capability: FC<ICapabilityProps> = ({ money, type, url }) => {
                 return (
                   <div className="capability_item" key={item.name}>
                     <div className="capability_item-top">
-                      <img
-                        src={item.imageUrl}
-                        width="150"
-                        height="160"
-                        alt={item.name}
-                      />
+                      <div className="capability_item-img">
+                        <img
+                          src={item.imageUrl}
+                          width="150"
+                          height="160"
+                          alt={item.name}
+                        />
+                      </div>
                       <span className="capability_item-amount">
                         x{Math.floor(money / item.price)}
                       </span>
