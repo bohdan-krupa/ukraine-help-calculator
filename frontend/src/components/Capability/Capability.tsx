@@ -6,9 +6,10 @@ import "./Capability.scss";
 interface ICapabilityProps {
   money: number;
   type: string;
+  url: string;
 }
 
-const Capability: FC<ICapabilityProps> = ({ money, type }) => {
+const Capability: FC<ICapabilityProps> = ({ money, type, url }) => {
   const [items, setItems] = useState<IItem[]>([]);
 
   const getItemsAsync = async (): Promise<void> => {
@@ -23,6 +24,7 @@ const Capability: FC<ICapabilityProps> = ({ money, type }) => {
   return (
     <>
       <div className="capability">
+        <a href={url} className="button-donate">Підтримати</a>
         <div className="capability_title">
           Що можна придбати за {money} грн? ({type})
         </div>
