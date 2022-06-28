@@ -5,12 +5,13 @@ import Capability from "../Capability/Capability";
 interface IStatisticsProps {
   money: number;
   type: string;
+  url: string;
 }
 
-const Statistics: FC<IStatisticsProps> = ({ money, type }) => {
+const Statistics: FC<IStatisticsProps> = ({ money, type, url }) => {
   return (
     <div className={`statistics-${type}`}>
-      <Capability money={money} type={type} />
+      <Capability money={money} type={type} url={url}/>
       {/* <Contribution /> */}
     </div>
   );
